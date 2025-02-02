@@ -1,10 +1,8 @@
 # Paddle .Net SDK
 
-This is 👉 **Unofficial** Paddle SDK for .NET provides a simple way to interact with Paddle's API for subscription
-management,
-payment processing, and webhook handling.
+This is 👉 **Unofficial** Paddle SDK for .NET
 
-The SDK is designed to simplify the integration of Paddle's services into .NET Core projects.
+SDK designed to provide a developer experience similar to the [Paddle Node.js SDK](https://github.com/PaddleHQ/paddle-node-sdk)
 
 ## Implemented APIs
 
@@ -17,7 +15,7 @@ The SDK is designed to simplify the integration of Paddle's services into .NET C
 ## Requirements
 
 - **.NET Version**: The SDK is built to support **.NET 9.0**.
-- **Paddle API Credentials**: Use your Paddle `API key`.
+- **Credentials**: Paddle `API key`.
 
 ## Installation
 
