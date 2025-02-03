@@ -1,3 +1,5 @@
+using Paddle.Sdk.Entities;
+
 namespace Paddle.Sdk.Api;
 
 /// <summary>
@@ -15,4 +17,8 @@ public interface IPaddleApi<TResponse, TListResponse, TCreate, TUpdate> {
     Task<TListResponse?> ListAsync(Dictionary<string, string> queryParams, CancellationToken cancellationToken = default);
 
     Task<TResponse?> UpdateAsync(string id, TUpdate request, CancellationToken cancellationToken = default);
+
+    Task<TResponse?> ArchiveAsync(string id, CancellationToken cancellationToken = default);
+
+    Task<TResponse?> ActivateAsync(string id, CancellationToken cancellationToken = default);
 }

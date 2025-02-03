@@ -12,4 +12,9 @@
         <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.1"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Api\Subscriptions\" />
+      <Folder Include="Api\Transactions\" />
+    </ItemGroup>
+
 </Project>

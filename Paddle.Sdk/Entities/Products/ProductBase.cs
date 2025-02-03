@@ -3,11 +3,10 @@ using System.Text.Json.Serialization;
 namespace Paddle.Sdk.Entities.Products;
 
 public class ProductBase : PaddleBaseEntity {
-    [JsonPropertyName("name")]
-    public required string Name { get; set; }
+    public virtual string Name { get; set; }
 
     [JsonPropertyName("tax_category")]
-    public required TaxCategory TaxCategory { get; set; }
+    public virtual TaxCategory TaxCategory { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }

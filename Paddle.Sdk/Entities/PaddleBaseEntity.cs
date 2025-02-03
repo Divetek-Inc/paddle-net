@@ -5,10 +5,10 @@ namespace Paddle.Sdk.Entities;
 
 public class PaddleBaseEntity {
     [JsonPropertyName("import_meta")]
-    public Dictionary<string, object> ImportMeta { get; set; }
+    public Dictionary<string, object>? ImportMeta { get; set; }
 
     [JsonPropertyName("custom_data")]
-    public Dictionary<string, object> CustomData { get; set; }
+    public Dictionary<string, object>? CustomData { get; set; }
 
     [JsonPropertyName("status")]
     public Status Status { get; set; }

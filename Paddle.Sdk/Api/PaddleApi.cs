@@ -1,5 +1,7 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.WebUtilities;
+using Paddle.Sdk.Entities;
+using Paddle.Sdk.Entities.Shared.Values;
 
 namespace Paddle.Sdk.Api;
 
@@ -7,7 +9,8 @@ public abstract class PaddleApi<TResponse, TListResponse, TCreate, TUpdate>(
     HttpClient httpClient,
     JsonSerializerOptions jsonOptions
 ) : ApiBase(httpClient, jsonOptions),
-    IPaddleApi<TResponse, TListResponse, TCreate, TUpdate> {
+    IPaddleApi<TResponse, TListResponse, TCreate, TUpdate>
+    where TUpdate : PaddleBaseEntity, new() {
     protected abstract override string BasePath { get; }
 
     public virtual async Task<TResponse?> CreateAsync(TCreate request, CancellationToken cancellationToken = default) {
@@ -25,8 +28,17 @@ public abstract class PaddleApi<TResponse, TListResponse, TCreate, TUpdate>(
         return await base.GetAsync<TListResponse>(url, cancellationToken);
     }
 
+
     public virtual async Task<TResponse?> UpdateAsync(string id, TUpdate request, CancellationToken cancellationToken = default) {
         string url = $"{BasePath}/{id}";
         return await PutAsync<TResponse>(url, request, cancellationToken);
+    }
+
+    public async Task<TResponse?> ArchiveAsync(string id, CancellationToken cancellationToken = default) {
+        return await UpdateAsync(id, new TUpdate { Status = Status.Archived }, cancellationToken);
+    }
+
+    public async Task<TResponse?> ActivateAsync(string id, CancellationToken cancellationToken = default) {
+        return await UpdateAsync(id, new TUpdate { Status = Status.Active }, cancellationToken);
     }
 }

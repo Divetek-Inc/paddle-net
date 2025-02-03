@@ -8,15 +8,15 @@ public class PriceBase : PaddleBaseEntity {
     public string? Name { get; set; }
 
     [JsonPropertyName("product_id")]
-    public required string ProductId { get; set; }
+    public virtual string ProductId { get; set; }
 
-    public required string Description { get; set; }
+    public virtual string Description { get; set; }
 
     [JsonPropertyName("unit_price")]
-    public required UnitPrice UnitPrice { get; set; }
+    public virtual UnitPrice UnitPrice { get; set; }
 
     [JsonPropertyName("tax_mode")]
-    public required TaxMode TaxMode { get; set; } = TaxMode.AccountSetting;
+    public virtual TaxMode TaxMode { get; set; } = TaxMode.AccountSetting;
 
     [JsonPropertyName("billing_cycle")]
     public BillingCycle? BillingCycle { get; set; }
