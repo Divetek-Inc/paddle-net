@@ -18,6 +18,48 @@ the [Paddle Node.js SDK](https://github.com/PaddleHQ/paddle-node-sdk)
 - **.NET Version**: The SDK is built to support **.NET 9.0**.
 - **Credentials**: Paddle `API key`.
 
+
+## How to use
+
+### Asp.Net Core
+
+```csharp
+// Add the Paddle to the services collection
+builder.Services.AddPaddleClient(options => {
+    options.ApiKey = "YOUR_API_KEY";
+    options.Environment = PaddleEnvironment.Sandbox; // or PaddleEnvironment.Production
+});
+
+
+// Inject the client in your endpoint/controller
+app.MapGet("/products", async (IPaddle paddle) => {
+    var products = await paddle.Products.ListAsync();
+    return products;
+});
+```
+
+### .Net Core CLI
+
+```csharp
+// Initialize the Paddle client
+var paddle = new Paddle(
+   apiKey: "YOUR_API_KEY",
+   environment: PaddleEnvironment.Sandbox // Or PaddleEnvironment.Production
+);
+
+// Example: Fetch and display product information
+var products = await paddle.Products.ListAsync();
+
+Console.WriteLine("Products:");
+foreach (var product in products)
+{
+   Console.WriteLine($"ID: {product.Id}, Name: {product.Name}");
+}
+
+// Clean up the client (dispose resources)
+paddle.Dispose();
+```
+
 ## Installation
 
 To include the Paddle SDK in your project, add a reference to the SDK package or include it directly in your solution.

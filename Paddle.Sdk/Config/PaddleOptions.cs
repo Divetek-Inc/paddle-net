@@ -5,5 +5,5 @@ public class PaddleOptions {
 
     public PaddleEnvironment Environment { get; set; }
 
-    public TimeSpan Timeout { get; set; }
+    public TimeSpan? Timeout { get; set; }
 }

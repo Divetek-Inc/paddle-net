@@ -1,10 +1,21 @@
 using Paddle.ApiTest;
+using Paddle.Sdk;
+using Paddle.Sdk.Dto.Customers;
+using Paddle.Sdk.Entities.Customers;
+using Paddle.Sdk.Entities.Shared;
+using Paddle.Sdk.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services.AddPaddleClient(options => {
+    options.ApiKey = "YOUR_API_KEY";
+    options.Environment = PaddleEnvironment.Sandbox; // or PaddleEnvironment.Production
+});
+
 
 var app = builder.Build();
 
