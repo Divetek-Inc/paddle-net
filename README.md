@@ -7,7 +7,7 @@ SDK designed to provide a developer experience similar to the [Paddle Node.js SD
 ## Implemented APIs
 
 - [x] **Products**
-- [ ] **Prices** (*in progress*)
+- [x] **Prices**
 - [ ] **Discounts** (*in progress*)
 - [ ] **Subscriptions** (*in progress*)
 - [ ] **Customers** (*in progress*)
