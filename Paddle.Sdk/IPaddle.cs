@@ -1,4 +1,4 @@
-using Paddle.Sdk.Services.Products;
+using Paddle.Sdk.Api.Products;
 
 namespace Paddle.Sdk;
 

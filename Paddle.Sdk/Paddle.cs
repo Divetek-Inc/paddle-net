@@ -1,42 +1,35 @@
 using System.Net.Http.Headers;
 using System.Text.Json;
-using Paddle.Sdk.Services.Products;
+using Paddle.Sdk.Api.Prices;
+using Paddle.Sdk.Api.Products;
 
 namespace Paddle.Sdk;
 
 public class Paddle : IPaddle, IDisposable {
-    private static Dictionary<PaddleEnvironmentType, string> ApiUrls = new() {
-        { PaddleEnvironmentType.Sandbox, "https://sandbox-api.paddle.com/" },
-        { PaddleEnvironmentType.Production, "https://api.paddle.com/" },
+    private static readonly Dictionary<PaddleEnvironment, string> ApiUrls = new() {
+        { PaddleEnvironment.Sandbox, "https://sandbox-api.paddle.com/" },
+        { PaddleEnvironment.Production, "https://api.paddle.com/" }
     };
 
     private readonly HttpClient _httpClient;
     private readonly JsonSerializerOptions _jsonOptions;
-    private readonly Lazy<IProductsApi> _productsService;
     private readonly bool _ownsHttpClient;
-
-
-    public string ApiUrl { get; }
-
-    #region Paddle Services
-
-    public IProductsApi Products => _productsService.Value;
-
-    #endregion
+    private readonly Lazy<IPricesApi> _pricesApi;
+    private readonly Lazy<IProductsApi> _productsApi;
 
 
     // Main constructor for direct instantiation
-    public Paddle(string apiKey, PaddleEnvironmentType environmentType)
-        : this(apiKey, environmentType, new HttpClient(), true) { }
+    public Paddle(string apiKey, PaddleEnvironment environment)
+        : this(apiKey, environment, new HttpClient(), true) { }
 
     // Constructor for DI
-    public Paddle(string apiKey, PaddleEnvironmentType environmentType, HttpClient httpClient)
-        : this(apiKey, environmentType, httpClient, false) { }
+    public Paddle(string apiKey, PaddleEnvironment environment, HttpClient httpClient)
+        : this(apiKey, environment, httpClient, false) { }
 
     // Private constructor for shared initialization
-    private Paddle(string apiKey, PaddleEnvironmentType environmentType, HttpClient httpClient, bool ownsHttpClient) {
+    private Paddle(string apiKey, PaddleEnvironment environment, HttpClient httpClient, bool ownsHttpClient) {
         // Initialize properties
-        ApiUrl = ApiUrls[environmentType];
+        ApiUrl = ApiUrls[environment];
         _httpClient = httpClient;
         _ownsHttpClient = ownsHttpClient;
 
@@ -50,18 +43,27 @@ public class Paddle : IPaddle, IDisposable {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
         };
 
-        #region Init services in lazy mode
+        #region Init APIs in lazy mode
 
-        // Initialize services
-        _productsService = new Lazy<IProductsApi>(() => new ProductsApi(_httpClient, _jsonOptions));
+        _productsApi = new Lazy<IProductsApi>(() => new ProductsApi(_httpClient, _jsonOptions));
+        _pricesApi = new Lazy<IPricesApi>(() => new PricesApi(_httpClient, _jsonOptions));
 
         #endregion
     }
 
 
+    public string ApiUrl { get; }
+
+
     public void Dispose() {
-        if (_ownsHttpClient) {
-            _httpClient.Dispose();
-        }
+        if (_ownsHttpClient) _httpClient.Dispose();
     }
+
+    #region Paddle APIs
+
+    public IProductsApi Products => _productsApi.Value;
+
+    public IPricesApi Prices => _pricesApi.Value;
+
+    #endregion
 }

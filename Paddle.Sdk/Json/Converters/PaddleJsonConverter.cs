@@ -1,7 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Paddle.Sdk.Dto.Shared.EnumParsers;
-using Paddle.Sdk.Dto.Shared.Values;
+using Paddle.Sdk.Entities.Shared.EnumParsers;
 
 namespace Paddle.Sdk.Json.Converters;
 
