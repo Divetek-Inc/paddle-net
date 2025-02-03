@@ -5,8 +5,8 @@ using Paddle.Sdk.Json.Converters;
 
 namespace Paddle.Sdk.Entities.Shared;
 
-[JsonConverter(typeof(PaddleJsonConverter<CountryCodes>))]
-public enum CountryCodes {
+[JsonConverter(typeof(PaddleJsonConverter<CountryCode>))]
+public enum CountryCode {
     [EnumMember(Value = "AD")]
     [Description("Andorra")]
     AD,

@@ -1,5 +1,7 @@
 using System.Net.Http.Headers;
 using System.Text.Json;
+using Paddle.Sdk.Api.Addresses;
+using Paddle.Sdk.Api.Customers;
 using Paddle.Sdk.Api.Prices;
 using Paddle.Sdk.Api.Products;
 
@@ -14,8 +16,17 @@ public class Paddle : IPaddle, IDisposable {
     private readonly HttpClient _httpClient;
     private readonly JsonSerializerOptions _jsonOptions;
     private readonly bool _ownsHttpClient;
+
+    #region Apis
+
     private readonly Lazy<IPricesApi> _pricesApi;
     private readonly Lazy<IProductsApi> _productsApi;
+    private readonly Lazy<IAddressApi> _addressApi;
+    private readonly Lazy<ICustomersApi> _customersApi;
+
+    #endregion
+
+    public string ApiUrl { get; }
 
 
     // Main constructor for direct instantiation
@@ -47,16 +58,10 @@ public class Paddle : IPaddle, IDisposable {
 
         _productsApi = new Lazy<IProductsApi>(() => new ProductsApi(_httpClient, _jsonOptions));
         _pricesApi = new Lazy<IPricesApi>(() => new PricesApi(_httpClient, _jsonOptions));
+        _addressApi = new Lazy<IAddressApi>(() => new AddressApi(_httpClient, _jsonOptions));
+        _customersApi = new Lazy<ICustomersApi>(() => new CustomersApi(_httpClient, _jsonOptions));
 
         #endregion
-    }
-
-
-    public string ApiUrl { get; }
-
-
-    public void Dispose() {
-        if (_ownsHttpClient) _httpClient.Dispose();
     }
 
     #region Paddle APIs
@@ -65,5 +70,13 @@ public class Paddle : IPaddle, IDisposable {
 
     public IPricesApi Prices => _pricesApi.Value;
 
+    public IAddressApi Addresses => _addressApi.Value;
+
+    public ICustomersApi Customers => _customersApi.Value;
+
     #endregion
+
+    public void Dispose() {
+        if (_ownsHttpClient) _httpClient.Dispose();
+    }
 }

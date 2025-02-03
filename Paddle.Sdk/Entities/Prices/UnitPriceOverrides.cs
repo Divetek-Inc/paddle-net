@@ -5,7 +5,7 @@ namespace Paddle.Sdk.Entities.Prices;
 
 public class UnitPriceOverrides {
     [JsonPropertyName("country_codes")]
-    public CountryCodes CountryCodes { get; set; }
+    public CountryCode CountryCode { get; set; }
 
     [JsonPropertyName("unit_price")]
     public UnitPrice UnitPrice { get; set; }

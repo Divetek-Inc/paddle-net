@@ -15,7 +15,7 @@ public abstract class ApiBase(HttpClient httpClient, JsonSerializerOptions jsonO
     }
 
     /// <exception cref="PaddleApiException">Thrown when api request failed</exception>
-    protected async Task<T?> PostAsync<T>(string url, object data, CancellationToken cancellationToken = default) {
+    protected async Task<T?> PostAsync<T>(string url, object? data, CancellationToken cancellationToken = default) {
         HttpResponseMessage response = await httpClient.PostAsJsonAsync(url, data, jsonOptions, cancellationToken);
         await EnsureSuccessAsync(response);
         return await response.Content.ReadFromJsonAsync<T>(jsonOptions, cancellationToken);

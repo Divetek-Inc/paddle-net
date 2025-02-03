@@ -2,15 +2,16 @@
 
 This is 👉 **Unofficial** Paddle SDK for .NET
 
-SDK designed to provide a developer experience similar to the [Paddle Node.js SDK](https://github.com/PaddleHQ/paddle-node-sdk)
+SDK designed to provide a developer experience similar to
+the [Paddle Node.js SDK](https://github.com/PaddleHQ/paddle-node-sdk)
 
 ## Implemented APIs
 
 - [x] **Products**
 - [x] **Prices**
-- [ ] **Discounts** (*in progress*)
+- [x] **Customers**
+- [x] **Addresses**
 - [ ] **Subscriptions** (*in progress*)
-- [ ] **Customers** (*in progress*)
 
 ## Requirements
 
