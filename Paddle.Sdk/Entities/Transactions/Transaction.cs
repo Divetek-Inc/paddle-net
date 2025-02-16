@@ -58,7 +58,7 @@ public class Transaction : PaddleBaseEntity {
     public BillingDetails? BillingDetails { get; set; } // Type can be specified once we know the structure
 
     [JsonPropertyName("collection_mode")]
-    public string CollectionMode { get; set; }
+    public CollectingMode CollectionMode { get; set; }
 
     [JsonPropertyName("subscription_id")]
     public string SubscriptionId { get; set; }

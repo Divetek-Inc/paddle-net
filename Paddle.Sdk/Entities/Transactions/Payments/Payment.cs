@@ -5,13 +5,13 @@ namespace Paddle.Sdk.Entities.Transactions.Payments;
 public class Payment {
     public required string Amount { get; set; }
 
-    public required string Status { get; set; }
+    public required PaymentStatus Status { get; set; }
 
     [JsonPropertyName("created_at")]
     public required DateTimeOffset CreatedAt { get; set; }
 
     [JsonPropertyName("error_code")]
-    public string? ErrorCode { get; set; }
+    public PaymentErrorCode? ErrorCode { get; set; }
 
     [JsonPropertyName("captured_at")]
     public DateTimeOffset? CapturedAt { get; set; }
