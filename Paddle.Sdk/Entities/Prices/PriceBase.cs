@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Text.Json.Serialization;
+using Paddle.Sdk.Entities.Shared;
 
 namespace Paddle.Sdk.Entities.Prices;
 

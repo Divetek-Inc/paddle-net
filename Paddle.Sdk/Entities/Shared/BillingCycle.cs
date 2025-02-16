@@ -1,6 +1,4 @@
-using Paddle.Sdk.Entities.Shared;
-
-namespace Paddle.Sdk.Entities.Prices;
+namespace Paddle.Sdk.Entities.Shared;
 
 public class BillingCycle {
     public required int Frequency { get; set; }
