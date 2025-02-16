@@ -19,7 +19,7 @@ public class Subscription : PaddleBaseEntity {
     public string? BusinessId { get; set; }
 
     [JsonPropertyName("currency_code")]
-    public string CurrencyCode { get; set; }
+    public CurrencyCode CurrencyCode { get; set; }
 
     [JsonPropertyName("billing_cycle")]
     public BillingCycle BillingCycle { get; set; }

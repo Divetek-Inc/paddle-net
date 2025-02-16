@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Text.Json.Serialization;
+using Paddle.Sdk.Entities.Prices;
 using Paddle.Sdk.Entities.Shared;
 using Paddle.Sdk.Entities.Shared.Values;
 using Paddle.Sdk.Entities.Transactions.Details;
@@ -44,7 +45,7 @@ public class Transaction : PaddleBaseEntity {
     public string? DiscountId { get; set; }
 
     [JsonPropertyName("currency_code")]
-    public string CurrencyCode { get; set; }
+    public required CurrencyCode CurrencyCode { get; set; }
 
     [JsonPropertyName("billing_period")]
     public BillingPeriod BillingPeriod { get; set; }

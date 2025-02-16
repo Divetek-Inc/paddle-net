@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Paddle.Sdk.Entities.Prices;
 
 namespace Paddle.Sdk.Entities.Transactions.Details;
 
@@ -23,5 +24,5 @@ public class AdjustedTotals
     public required string GrandTotal { get; set; }
 
     [JsonPropertyName("currency_code")]
-    public required string CurrencyCode { get; set; }
+    public required CurrencyCode CurrencyCode { get; set; }
 }
