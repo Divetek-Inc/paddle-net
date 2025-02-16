@@ -11,13 +11,14 @@ the [Paddle Node.js SDK](https://github.com/PaddleHQ/paddle-node-sdk)
 - [x] **Prices**
 - [x] **Customers**
 - [x] **Addresses**
+- [ ] **Notifications** (*in progress*)
 - [ ] **Subscriptions** (*in progress*)
+- [ ] **Transactions** (*in progress*)
 
 ## Requirements
 
 - **.NET Version**: The SDK is built to support **.NET 9.0**.
 - **Credentials**: Paddle `API key`.
-
 
 ## How to use
 
