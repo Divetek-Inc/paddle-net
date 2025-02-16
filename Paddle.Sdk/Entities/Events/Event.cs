@@ -1,13 +1,14 @@
 using System.Text.Json.Serialization;
+using Paddle.Sdk.Entities.Shared;
 
-namespace Paddle.Sdk.Entities;
+namespace Paddle.Sdk.Entities.Events;
 
-public class PaddleNotification {
+public class Event {
     [JsonPropertyName("event_id")]
     public string EventId { get; set; } = null!;
 
     [JsonPropertyName("event_type")]
-    public PaddleEvent EventType { get; set; }
+    public EventType EventType { get; set; }
 
     [JsonPropertyName("occurred_at")]
     public DateTimeOffset OccurredAt { get; set; }

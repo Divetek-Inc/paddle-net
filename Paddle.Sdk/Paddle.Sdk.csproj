@@ -15,6 +15,7 @@
     <ItemGroup>
       <Folder Include="Api\Subscriptions\" />
       <Folder Include="Api\Transactions\" />
+      <Folder Include="Notifications\" />
     </ItemGroup>
 
 </Project>
