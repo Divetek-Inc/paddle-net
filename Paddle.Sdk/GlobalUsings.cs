@@ -28,3 +28,10 @@ global using AddressResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<Paddle.
 global using AddressListResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<System.Collections.Generic.List<Paddle.Sdk.Entities.Addresses.Address>>;
 
 #endregion
+
+#region Subscriptions
+
+global using SubscriptionResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<Paddle.Sdk.Entities.Subscriptions.Subscription>;
+global using SubscriptionListResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<System.Collections.Generic.List<Paddle.Sdk.Entities.Subscriptions.Subscription>>;
+
+#endregion
