@@ -14,4 +14,14 @@ public class CustomersApi(
         string url = $"{BasePath}/{id}/auth-token";
         return await PostAsync<CustomerAuthTokenResponse>(url, null, cancellationToken);
     }
+
+    public async Task<CustomerSavedPaymentMethodsResponse?> GetSavedPaymentMethods(string customerId, CancellationToken cancellationToken = default) {
+        string url = $"{BasePath}/{customerId}/payment-methods";
+        return await GetAsync<CustomerSavedPaymentMethodsResponse>(url, cancellationToken);
+    }
+
+    public async Task<CustomerPaymentMethodResponse?> GetPaymentMethod(string customerId, string paymentMethodId, CancellationToken cancellationToken = default) {
+        string url = $"{BasePath}/{customerId}/payment-methods/{paymentMethodId}";
+        return await GetAsync<CustomerPaymentMethodResponse>(url, cancellationToken);
+    }
 }

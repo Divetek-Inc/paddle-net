@@ -17,6 +17,8 @@ global using PriceListResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<Syste
 global using CustomerResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<Paddle.Sdk.Entities.Customers.Customer>;
 global using CustomerListResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<System.Collections.Generic.List<Paddle.Sdk.Entities.Customers.Customer>>;
 global using CustomerAuthTokenResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<Paddle.Sdk.Entities.Customers.CustomerAuthToken>;
+global using CustomerSavedPaymentMethodsResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<System.Collections.Generic.List<Paddle.Sdk.Entities.PaymentMethods.PaymentMethod>>;
+global using CustomerPaymentMethodResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<System.Collections.Generic.List<Paddle.Sdk.Entities.PaymentMethods.PaymentMethod>>;
 
 #endregion
 
