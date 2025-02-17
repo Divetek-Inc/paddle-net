@@ -1,3 +1,4 @@
+using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json;
 using Paddle.Sdk.Http;
@@ -36,10 +37,9 @@ public abstract class ApiBase(HttpClient httpClient, JsonSerializerOptions jsonO
     }
 
     /// <exception cref="PaddleApiException">Thrown when api request failed</exception>
-    protected async Task<T?> DeleteAsync<T>(string url, CancellationToken cancellationToken = default) {
+    protected async Task<bool> DeleteAsync(string url, CancellationToken cancellationToken = default) {
         HttpResponseMessage response = await httpClient.DeleteAsync(url, cancellationToken);
-        await EnsureSuccessAsync(response);
-        return await response.Content.ReadFromJsonAsync<T>(jsonOptions, cancellationToken);
+        return response.StatusCode == HttpStatusCode.NoContent;
     }
 
     private static async Task EnsureSuccessAsync(HttpResponseMessage response) {

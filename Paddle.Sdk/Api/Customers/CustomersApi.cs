@@ -24,4 +24,9 @@ public class CustomersApi(
         string url = $"{BasePath}/{customerId}/payment-methods/{paymentMethodId}";
         return await GetAsync<CustomerPaymentMethodResponse>(url, cancellationToken);
     }
+
+    public async Task<bool> DeletePaymentMethod(string customerId, string paymentMethodId, CancellationToken cancellationToken = default) {
+        string url = $"{BasePath}/{customerId}/payment-methods/{paymentMethodId}";
+        return await DeleteAsync(url, cancellationToken);
+    }
 }
