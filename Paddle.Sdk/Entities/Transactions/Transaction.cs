@@ -15,7 +15,7 @@ public class Transaction : PaddleBaseEntity {
 
     public TransactionOrigin Origin { get; set; }
 
-    public Status Status { get; set; }
+    public new TransactionStatus Status { get; set; }
 
     public TransactionDetails Details { get; set; }
 

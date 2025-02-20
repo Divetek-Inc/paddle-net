@@ -8,6 +8,8 @@ public interface ICustomersApi : IPaddleApi<CustomerResponse, CustomerListRespon
     Task<CustomerSavedPaymentMethodsResponse?> GetSavedPaymentMethods(string customerId, CancellationToken cancellationToken = default);
 
     Task<CustomerPaymentMethodResponse?> GetPaymentMethod(string customerId, string paymentMethodId, CancellationToken cancellationToken = default);
-    
+
     Task<bool> DeletePaymentMethod(string customerId, string paymentMethodId, CancellationToken cancellationToken = default);
+
+    Task<CustomerPortalSessionResponse?> CreatePortalSession(string customerId, CancellationToken cancellationToken = default);
 }

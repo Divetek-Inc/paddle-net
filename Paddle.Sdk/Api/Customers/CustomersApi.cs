@@ -29,4 +29,9 @@ public class CustomersApi(
         string url = $"{BasePath}/{customerId}/payment-methods/{paymentMethodId}";
         return await DeleteAsync(url, cancellationToken);
     }
+
+    public async Task<CustomerPortalSessionResponse?> CreatePortalSession(string customerId, CancellationToken cancellationToken = default) {
+        string url = $"{BasePath}/{customerId}/portal-session";
+        return await PostAsync<CustomerPortalSessionResponse>(url, null, cancellationToken);
+    }
 }
