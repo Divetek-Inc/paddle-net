@@ -20,6 +20,8 @@ global using CustomerAuthTokenResponse = Paddle.Sdk.Entities.Shared.PaddleRespon
 global using CustomerSavedPaymentMethodsResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<System.Collections.Generic.List<Paddle.Sdk.Entities.PaymentMethods.PaymentMethod>>;
 global using CustomerPaymentMethodResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<System.Collections.Generic.List<Paddle.Sdk.Entities.PaymentMethods.PaymentMethod>>;
 global using CustomerPortalSessionResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<Paddle.Sdk.Entities.Customers.CustomerPortalSession>;
+global using BusinessResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<Paddle.Sdk.Entities.Businesses.Business>;
+global using BusinessListResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<System.Collections.Generic.List<Paddle.Sdk.Entities.Businesses.Business>>;
 
 #endregion
 
