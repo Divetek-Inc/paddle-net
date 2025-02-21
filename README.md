@@ -10,10 +10,12 @@ the [Paddle Node.js SDK](https://github.com/PaddleHQ/paddle-node-sdk)
 - [x] **Products**
 - [x] **Prices**
 - [x] **Customers**
+- [x] **Customer Portal Sessions**
+- [x] **Businesses**
 - [x] **Addresses**
 - [x] **Subscriptions**
+- [x] **Transactions** (*no preview api yet*)
 - [ ] **Notifications** (*in progress*)
-- [ ] **Transactions** (*in progress*)
 
 ## Requirements
 
