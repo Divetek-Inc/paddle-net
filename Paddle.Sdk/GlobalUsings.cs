@@ -38,3 +38,10 @@ global using SubscriptionResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<Pa
 global using SubscriptionListResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<System.Collections.Generic.List<Paddle.Sdk.Entities.Subscriptions.Subscription>>;
 
 #endregion
+
+#region Transactions
+
+global using TransactionListResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<System.Collections.Generic.List<Paddle.Sdk.Entities.Transactions.Transaction>>;
+global using InvoiceUrlResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<Paddle.Sdk.Dto.Transactions.InvoiceUrl>;
+
+#endregion

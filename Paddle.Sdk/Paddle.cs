@@ -5,6 +5,7 @@ using Paddle.Sdk.Api.Customers;
 using Paddle.Sdk.Api.Prices;
 using Paddle.Sdk.Api.Products;
 using Paddle.Sdk.Api.Subscriptions;
+using Paddle.Sdk.Api.Transactions;
 
 namespace Paddle.Sdk;
 
@@ -25,6 +26,7 @@ public class Paddle : IPaddle, IDisposable {
     private readonly Lazy<IAddressApi> _addressApi;
     private readonly Lazy<ICustomersApi> _customersApi;
     private readonly Lazy<ISubscriptionsApi> _subscriptionsApi;
+    private readonly Lazy<ITransactionsApi> _transactionsApi;
 
     #endregion
 
@@ -63,6 +65,7 @@ public class Paddle : IPaddle, IDisposable {
         _addressApi = new Lazy<IAddressApi>(() => new AddressApi(_httpClient, _jsonOptions));
         _customersApi = new Lazy<ICustomersApi>(() => new CustomersApi(_httpClient, _jsonOptions));
         _subscriptionsApi = new Lazy<ISubscriptionsApi>(() => new SubscriptionsApi(_httpClient, _jsonOptions));
+        _transactionsApi = new Lazy<ITransactionsApi>(() => new TransactionsApi(_httpClient, _jsonOptions));
 
         #endregion
     }
@@ -76,6 +79,10 @@ public class Paddle : IPaddle, IDisposable {
     public IAddressApi Addresses => _addressApi.Value;
 
     public ICustomersApi Customers => _customersApi.Value;
+
+    public ISubscriptionsApi Subscriptions => _subscriptionsApi.Value;
+
+    public ITransactionsApi Transactions => _transactionsApi.Value;
 
     #endregion
 
