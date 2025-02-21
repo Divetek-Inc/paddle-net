@@ -2,6 +2,8 @@
 
 This is 👉 **Unofficial** Paddle SDK for .NET
 
+> ⏩Paddle Billing API ONLY!
+
 SDK designed to provide a developer experience similar to
 the [Paddle Node.js SDK](https://github.com/PaddleHQ/paddle-node-sdk)
 
