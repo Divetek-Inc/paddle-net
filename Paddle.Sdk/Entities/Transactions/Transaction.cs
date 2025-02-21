@@ -61,5 +61,5 @@ public class Transaction : PaddleBaseEntity {
     public CollectingMode CollectionMode { get; set; }
 
     [JsonPropertyName("subscription_id")]
-    public string SubscriptionId { get; set; }
+    public string? SubscriptionId { get; set; }
 }
