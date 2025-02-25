@@ -8,7 +8,7 @@ using Paddle.Sdk.Entities.Transactions.Payments;
 
 namespace Paddle.Sdk.Entities.Transactions;
 
-public class Transaction : PaddleBaseEntity {
+public class PaddleTransaction : PaddleBaseEntity {
     public required string Id { get; set; }
 
     public List<TransactionItem> Items { get; set; }

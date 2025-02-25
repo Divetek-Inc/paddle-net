@@ -11,7 +11,7 @@ public class LineItem {
     public required BaseTotals Totals { get; set; }
 
     [JsonPropertyName("product")]
-    public required Product Product { get; set; }
+    public required PaddleProduct Product { get; set; }
 
     [JsonPropertyName("price_id")]
     public required string PriceId { get; set; }

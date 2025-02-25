@@ -3,6 +3,6 @@ using Paddle.Sdk.Entities.Transactions;
 
 namespace Paddle.Sdk.Api.Transactions;
 
-public interface ITransactionsApi : IPaddleApi<Transaction, TransactionListResponse, TransactionCreate, TransactionUpdate> {
+public interface ITransactionsApi : IPaddleApi<PaddleTransaction, TransactionListResponse, TransactionCreate, TransactionUpdate> {
     Task<InvoiceUrlResponse?> GetInvoiceUrl(string transactionId, CancellationToken cancellationToken = default);
 }

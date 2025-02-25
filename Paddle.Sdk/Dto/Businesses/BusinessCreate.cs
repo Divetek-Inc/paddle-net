@@ -12,7 +12,7 @@ public class BusinessCreate {
     [JsonPropertyName("tax_identifier")]
     public string? TaxNumber { get; set; }
 
-    [JsonPropertyName("contact")]
+    [JsonPropertyName("contacts")]
     public List<BusinessContact>? Contacts { get; set; }
 
     [JsonPropertyName("custom_data")]

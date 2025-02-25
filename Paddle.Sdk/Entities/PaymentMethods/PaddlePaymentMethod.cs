@@ -5,7 +5,7 @@ using Paddle.Sdk.Entities.Transactions.Payments;
 
 namespace Paddle.Sdk.Entities.PaymentMethods;
 
-public class PaymentMethod {
+public class PaddlePaymentMethod {
     [Description("Unique Paddle ID for this payment method entity, prefixed with paymtd_.")]
     public required string Id { get; set; }
 

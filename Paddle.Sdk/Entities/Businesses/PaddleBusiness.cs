@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace Paddle.Sdk.Entities.Businesses;
 
-public class Business : PaddleBaseEntity {
+public class PaddleBusiness : PaddleBaseEntity {
     public required string Id { get; set; }
 
     [JsonPropertyName("customer_id")]

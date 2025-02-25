@@ -4,7 +4,7 @@ using Paddle.Sdk.Entities.Shared;
 
 namespace Paddle.Sdk.Entities.Subscriptions;
 
-public class Subscription : PaddleBaseEntity {
+public class PaddleSubscription : PaddleBaseEntity {
     public string Id { get; set; }
 
     public List<SubscriptionItem> Items { get; set; }

@@ -6,9 +6,9 @@ using Paddle.Sdk.Entities.Shared.Values;
 namespace Paddle.Sdk.Entities.Subscriptions;
 
 public class SubscriptionItem {
-    public Price Price { get; set; }
+    public PaddlePrice Price { get; set; }
 
-    public Product Product { get; set; }
+    public PaddleProduct Product { get; set; }
 
     public int Quantity { get; set; }
 

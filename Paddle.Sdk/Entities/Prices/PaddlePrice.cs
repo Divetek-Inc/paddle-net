@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace Paddle.Sdk.Entities.Prices;
 
-public class Price : PriceBase {
+public class PaddlePrice : PriceBase {
     public required string Id { get; set; }
 
     [JsonPropertyName("product_id")]

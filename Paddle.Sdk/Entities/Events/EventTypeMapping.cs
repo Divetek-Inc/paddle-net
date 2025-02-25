@@ -7,26 +7,26 @@ namespace Paddle.Sdk.Entities.Events;
 public static class EventTypeMapping {
     private static readonly Dictionary<EventType, Type> TypeMap = new() {
         // Subscription events
-        { EventType.SubscriptionActivated, typeof(Subscription) },
-        { EventType.SubscriptionCancelled, typeof(Subscription) },
-        { EventType.SubscriptionCreated, typeof(Subscription) },
-        { EventType.SubscriptionImported, typeof(Subscription) },
-        { EventType.SubscriptionPastDue, typeof(Subscription) },
-        { EventType.SubscriptionPaused, typeof(Subscription) },
-        { EventType.SubscriptionResumed, typeof(Subscription) },
-        { EventType.SubscriptionTrialing, typeof(Subscription) },
-        { EventType.SubscriptionUpdated, typeof(Subscription) },
+        { EventType.SubscriptionActivated, typeof(PaddleSubscription) },
+        { EventType.SubscriptionCancelled, typeof(PaddleSubscription) },
+        { EventType.SubscriptionCreated, typeof(PaddleSubscription) },
+        { EventType.SubscriptionImported, typeof(PaddleSubscription) },
+        { EventType.SubscriptionPastDue, typeof(PaddleSubscription) },
+        { EventType.SubscriptionPaused, typeof(PaddleSubscription) },
+        { EventType.SubscriptionResumed, typeof(PaddleSubscription) },
+        { EventType.SubscriptionTrialing, typeof(PaddleSubscription) },
+        { EventType.SubscriptionUpdated, typeof(PaddleSubscription) },
 
         // Transaction events
-        { EventType.TransactionBilled, typeof(Transaction) },
-        { EventType.TransactionCanceled, typeof(Transaction) },
-        { EventType.TransactionCompleted, typeof(Transaction) },
-        { EventType.TransactionCreated, typeof(Transaction) },
-        { EventType.TransactionPaid, typeof(Transaction) },
-        { EventType.TransactionPastDue, typeof(Transaction) },
-        { EventType.TransactionPaymentFailed, typeof(Transaction) },
-        { EventType.TransactionReady, typeof(Transaction) },
-        { EventType.TransactionUpdated, typeof(Transaction) },
+        { EventType.TransactionBilled, typeof(PaddleTransaction) },
+        { EventType.TransactionCanceled, typeof(PaddleTransaction) },
+        { EventType.TransactionCompleted, typeof(PaddleTransaction) },
+        { EventType.TransactionCreated, typeof(PaddleTransaction) },
+        { EventType.TransactionPaid, typeof(PaddleTransaction) },
+        { EventType.TransactionPastDue, typeof(PaddleTransaction) },
+        { EventType.TransactionPaymentFailed, typeof(PaddleTransaction) },
+        { EventType.TransactionReady, typeof(PaddleTransaction) },
+        { EventType.TransactionUpdated, typeof(PaddleTransaction) },
     };
 
     public static Type GetDataType(EventType eventType)
