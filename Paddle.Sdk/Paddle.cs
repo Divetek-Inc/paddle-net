@@ -7,6 +7,7 @@ using Paddle.Sdk.Api.Prices;
 using Paddle.Sdk.Api.Products;
 using Paddle.Sdk.Api.Subscriptions;
 using Paddle.Sdk.Api.Transactions;
+using Paddle.Sdk.Json.Converters;
 
 namespace Paddle.Sdk;
 
