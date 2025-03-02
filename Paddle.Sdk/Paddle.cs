@@ -88,6 +88,14 @@ public class Paddle : IPaddle, IDisposable {
 
     #endregion
 
+    public T Deserialize<T>(string json) {
+        return JsonSerializer.Deserialize<T>(json, _jsonOptions)!;
+    }
+
+    public string Serialize<T>(T obj) {
+        return JsonSerializer.Serialize(obj, _jsonOptions);
+    }
+
     public void Dispose() {
         if (_ownsHttpClient) _httpClient.Dispose();
     }

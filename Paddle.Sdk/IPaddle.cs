@@ -19,4 +19,8 @@ public interface IPaddle {
     ITransactionsApi Transactions { get; }
 
     IPricesApi Prices { get; }
+
+    T Deserialize<T>(string json);
+
+    string Serialize<T>(T obj);
 }
