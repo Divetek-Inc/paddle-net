@@ -1,10 +1,10 @@
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
-using Paddle.Sdk.Entities.Shared.EnumParsers;
+using Paddle.Sdk.Json.Converters;
 
 namespace Paddle.Sdk.Entities.Shared;
 
-[JsonConverter(typeof(PaddleEnumParser<Interval>))]
+[JsonConverter(typeof(PaddleJsonConverter<Interval>))]
 public enum Interval {
     [EnumMember(Value = "day")]
     Day,

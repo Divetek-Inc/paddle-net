@@ -1,5 +1,6 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Logging;
 using Paddle.Sdk.Dto.Addresses;
 using Paddle.Sdk.Entities.Shared.Values;
 
@@ -7,8 +8,9 @@ namespace Paddle.Sdk.Api.Addresses;
 
 public class AddressApi(
     HttpClient httpClient,
-    JsonSerializerOptions jsonOptions
-) : ApiBase(httpClient, jsonOptions), IAddressApi {
+    JsonSerializerOptions jsonOptions,
+    ILogger? logger = null
+) : ApiBase(httpClient, jsonOptions, logger), IAddressApi {
     protected override string BasePath => "/customers";
 
     public async Task<AddressResponse?> GetAsync(string customerId, string addressId, CancellationToken cancellationToken = default) {

@@ -41,6 +41,7 @@ global using SubscriptionListResponse = Paddle.Sdk.Entities.Shared.PaddleRespons
 
 #region Transactions
 
+global using TransactionResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<Paddle.Sdk.Entities.Transactions.PaddleTransaction>;
 global using TransactionListResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<System.Collections.Generic.List<Paddle.Sdk.Entities.Transactions.PaddleTransaction>>;
 global using InvoiceUrlResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<Paddle.Sdk.Dto.Transactions.InvoiceUrl>;
 

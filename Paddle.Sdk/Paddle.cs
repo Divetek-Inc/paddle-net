@@ -1,11 +1,13 @@
 using System.Net.Http.Headers;
 using System.Text.Json;
+using Microsoft.Extensions.Logging;
 using Paddle.Sdk.Api.Addresses;
 using Paddle.Sdk.Api.Customers;
 using Paddle.Sdk.Api.Prices;
 using Paddle.Sdk.Api.Products;
 using Paddle.Sdk.Api.Subscriptions;
 using Paddle.Sdk.Api.Transactions;
+using Paddle.Sdk.Json.Converters;
 
 namespace Paddle.Sdk;
 
@@ -34,15 +36,15 @@ public class Paddle : IPaddle, IDisposable {
 
 
     // Main constructor for direct instantiation
-    public Paddle(string apiKey, PaddleEnvironment environment)
-        : this(apiKey, environment, new HttpClient(), true) { }
+    public Paddle(string apiKey, PaddleEnvironment environment, ILogger? logger = null)
+        : this(apiKey, environment, new HttpClient(), true, logger: logger) { }
 
     // Constructor for DI
     public Paddle(string apiKey, PaddleEnvironment environment, HttpClient httpClient)
         : this(apiKey, environment, httpClient, false) { }
 
     // Private constructor for shared initialization
-    private Paddle(string apiKey, PaddleEnvironment environment, HttpClient httpClient, bool ownsHttpClient) {
+    private Paddle(string apiKey, PaddleEnvironment environment, HttpClient httpClient, bool ownsHttpClient, ILogger? logger = null) {
         // Initialize properties
         ApiUrl = ApiUrls[environment];
         _httpClient = httpClient;
@@ -55,17 +57,17 @@ public class Paddle : IPaddle, IDisposable {
 
         _jsonOptions = new JsonSerializerOptions {
             PropertyNameCaseInsensitive = true,
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         };
 
         #region Init APIs in lazy mode
 
-        _productsApi = new Lazy<IProductsApi>(() => new ProductsApi(_httpClient, _jsonOptions));
-        _pricesApi = new Lazy<IPricesApi>(() => new PricesApi(_httpClient, _jsonOptions));
-        _addressApi = new Lazy<IAddressApi>(() => new AddressApi(_httpClient, _jsonOptions));
-        _customersApi = new Lazy<ICustomersApi>(() => new CustomersApi(_httpClient, _jsonOptions));
-        _subscriptionsApi = new Lazy<ISubscriptionsApi>(() => new SubscriptionsApi(_httpClient, _jsonOptions));
-        _transactionsApi = new Lazy<ITransactionsApi>(() => new TransactionsApi(_httpClient, _jsonOptions));
+        _productsApi = new Lazy<IProductsApi>(() => new ProductsApi(_httpClient, _jsonOptions, logger));
+        _pricesApi = new Lazy<IPricesApi>(() => new PricesApi(_httpClient, _jsonOptions, logger));
+        _addressApi = new Lazy<IAddressApi>(() => new AddressApi(_httpClient, _jsonOptions, logger));
+        _customersApi = new Lazy<ICustomersApi>(() => new CustomersApi(_httpClient, _jsonOptions, logger));
+        _subscriptionsApi = new Lazy<ISubscriptionsApi>(() => new SubscriptionsApi(_httpClient, _jsonOptions, logger));
+        _transactionsApi = new Lazy<ITransactionsApi>(() => new TransactionsApi(_httpClient, _jsonOptions, logger));
 
         #endregion
     }

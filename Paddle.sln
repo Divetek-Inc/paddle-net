@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paddle.Sdk", "Paddle.Sdk\Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paddle.ApiTest", "Paddle.ApiTest\Paddle.ApiTest.csproj", "{1547D451-34A4-442C-813F-02DEEB05C697}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paddle.CliTest", "Paddle.CliTest\Paddle.CliTest.csproj", "{8A6E8253-BCAA-45A2-9155-4CF737930B87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{1547D451-34A4-442C-813F-02DEEB05C697}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1547D451-34A4-442C-813F-02DEEB05C697}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1547D451-34A4-442C-813F-02DEEB05C697}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A6E8253-BCAA-45A2-9155-4CF737930B87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A6E8253-BCAA-45A2-9155-4CF737930B87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A6E8253-BCAA-45A2-9155-4CF737930B87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A6E8253-BCAA-45A2-9155-4CF737930B87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

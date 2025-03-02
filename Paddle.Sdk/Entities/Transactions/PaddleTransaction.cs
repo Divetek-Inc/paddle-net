@@ -5,6 +5,7 @@ using Paddle.Sdk.Entities.Shared;
 using Paddle.Sdk.Entities.Shared.Values;
 using Paddle.Sdk.Entities.Transactions.Details;
 using Paddle.Sdk.Entities.Transactions.Payments;
+using Paddle.Sdk.Json.Converters;
 
 namespace Paddle.Sdk.Entities.Transactions;
 
@@ -14,7 +15,7 @@ public class PaddleTransaction : PaddleBaseEntity {
     public List<TransactionItem> Items { get; set; }
 
     public TransactionOrigin Origin { get; set; }
-
+    
     public new TransactionStatus Status { get; set; }
 
     public TransactionDetails Details { get; set; }

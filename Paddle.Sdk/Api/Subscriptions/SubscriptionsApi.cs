@@ -1,13 +1,15 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Logging;
 using Paddle.Sdk.Dto.Subscriptions;
 
 namespace Paddle.Sdk.Api.Subscriptions;
 
 public class SubscriptionsApi(
     HttpClient httpClient,
-    JsonSerializerOptions jsonOptions
-) : ApiBase(httpClient, jsonOptions), ISubscriptionsApi {
+    JsonSerializerOptions jsonOptions,
+    ILogger? logger = null
+) : ApiBase(httpClient, jsonOptions, logger), ISubscriptionsApi {
     protected override string BasePath => "/subscriptions";
 
     public async Task<SubscriptionResponse?> GetAsync(string id, Dictionary<string, string> queryParams, CancellationToken cancellationToken = default) {

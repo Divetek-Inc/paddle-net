@@ -9,8 +9,6 @@ public class PaddleSubscription : PaddleBaseEntity {
 
     public List<SubscriptionItem> Items { get; set; }
 
-    public new SubscriptionStatus Status { get; set; }
-
     [JsonPropertyName("customer_id")]
     public string CustomerId { get; set; }
 

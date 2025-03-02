@@ -3,7 +3,7 @@ using Paddle.Sdk.Entities.Shared.Values;
 
 namespace Paddle.Sdk.Entities;
 
-public class PaddleBaseEntity {
+public class PaddleBaseEntity{
     [JsonPropertyName("import_meta")]
     public Dictionary<string, object>? ImportMeta { get; set; }
 

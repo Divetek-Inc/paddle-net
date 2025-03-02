@@ -1,7 +1,7 @@
 namespace Paddle.Sdk.Entities.Shared;
 
 public class BillingCycle {
-    public required int Frequency { get; set; }
+    public int Frequency { get; set; }
 
-    public required Interval Interval { get; set; }
+    public Interval Interval { get; set; }
 }

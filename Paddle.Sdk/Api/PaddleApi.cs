@@ -1,5 +1,6 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Logging;
 using Paddle.Sdk.Entities;
 using Paddle.Sdk.Entities.Shared.Values;
 
@@ -7,8 +8,9 @@ namespace Paddle.Sdk.Api;
 
 public abstract class PaddleApi<TResponse, TListResponse, TCreate, TUpdate>(
     HttpClient httpClient,
-    JsonSerializerOptions jsonOptions
-) : ApiBase(httpClient, jsonOptions),
+    JsonSerializerOptions jsonOptions,
+    ILogger? logger = null
+) : ApiBase(httpClient, jsonOptions, logger),
     IPaddleApi<TResponse, TListResponse, TCreate, TUpdate>
     where TUpdate : PaddleBaseEntity, new() {
     protected abstract override string BasePath { get; }

@@ -26,7 +26,7 @@ public class PriceBase : PaddleBaseEntity {
     public TrialPeriod? TrialPeriod { get; set; }
 
     [JsonPropertyName("unit_price_overrides")]
-    public UnitPriceOverrides? UnitPriceOverrides { get; set; }
+    public List<UnitPriceOverrides>? UnitPriceOverrides { get; set; }
 
     public Quantity? Quantity { get; set; }
 }

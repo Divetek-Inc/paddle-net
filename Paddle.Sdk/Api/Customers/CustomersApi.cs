@@ -1,13 +1,15 @@
 using System.Text.Json;
 using Paddle.Sdk.Dto.Businesses;
 using Paddle.Sdk.Dto.Customers;
+using Microsoft.Extensions.Logging;
 
 namespace Paddle.Sdk.Api.Customers;
 
 public class CustomersApi(
     HttpClient httpClient,
-    JsonSerializerOptions jsonOptions
-) : PaddleApi<CustomerResponse, CustomerListResponse, CustomerCreate, CustomerUpdate>(httpClient, jsonOptions),
+    JsonSerializerOptions jsonOptions,
+    ILogger? logger = null
+) : PaddleApi<CustomerResponse, CustomerListResponse, CustomerCreate, CustomerUpdate>(httpClient, jsonOptions, logger),
     ICustomersApi {
     protected override string BasePath => "/customers";
 

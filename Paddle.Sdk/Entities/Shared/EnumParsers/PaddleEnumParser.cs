@@ -20,11 +20,26 @@ public static class PaddleEnumParser<T> where T : Enum {
         if (string.IsNullOrEmpty(value)) throw new ArgumentException("Value cannot be null or empty", nameof(value));
 
         Type enumType = typeof(T);
-
+        
+        // Try to find exact EnumMember match first
         foreach (FieldInfo field in enumType.GetFields()) {
             if (Attribute.GetCustomAttribute(field, typeof(EnumMemberAttribute)) is not EnumMemberAttribute attribute) continue;
 
-            if (attribute.Value == value) return (T)(field.GetValue(null) ?? throw new InvalidOperationException($"Could not get enum value for {value}"));
+            if (attribute.Value?.Equals(value, StringComparison.OrdinalIgnoreCase) == true) 
+                return (T)(field.GetValue(null) ?? throw new InvalidOperationException($"Could not get enum value for {value}"));
+        }
+
+        // If no EnumMember match found, try parsing the enum value directly
+        if (Enum.TryParse(enumType, value, true, out object? result))
+        {
+            return (T)result;
+        }
+
+        // Try to match by name (case-insensitive)
+        foreach (string name in Enum.GetNames(enumType)) {
+            if (name.Equals(value, StringComparison.OrdinalIgnoreCase)) {
+                return (T)Enum.Parse(enumType, name);
+            }
         }
 
         throw new ArgumentException($"'{value}' is not a valid value for enum {typeof(T).Name}");

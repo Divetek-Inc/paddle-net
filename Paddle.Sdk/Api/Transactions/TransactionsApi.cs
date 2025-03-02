@@ -1,5 +1,6 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Logging;
 using Paddle.Sdk.Dto.Transactions;
 using Paddle.Sdk.Entities.Transactions;
 
@@ -7,18 +8,19 @@ namespace Paddle.Sdk.Api.Transactions;
 
 public class TransactionsApi(
     HttpClient httpClient,
-    JsonSerializerOptions jsonOptions
-) : ApiBase(httpClient, jsonOptions), ITransactionsApi {
+    JsonSerializerOptions jsonOptions,
+    ILogger? logger = null
+) : ApiBase(httpClient, jsonOptions, logger), ITransactionsApi {
     protected override string BasePath => "/transactions";
 
-    public async Task<PaddleTransaction?> CreateAsync(TransactionCreate request, CancellationToken cancellationToken = default) {
+    public async Task<TransactionResponse?> CreateAsync(TransactionCreate request, CancellationToken cancellationToken = default) {
         string url = $"{BasePath}";
-        return await PostAsync<PaddleTransaction>(url, request, cancellationToken);
+        return await PostAsync<TransactionResponse>(url, request, cancellationToken);
     }
 
-    public async Task<PaddleTransaction?> GetAsync(string id, Dictionary<string, string>? queryParams = null, CancellationToken cancellationToken = default) {
+    public async Task<TransactionResponse?> GetAsync(string id, Dictionary<string, string>? queryParams = null, CancellationToken cancellationToken = default) {
         string url = $"{BasePath}/{id}";
-        return await GetAsync<PaddleTransaction>(url, cancellationToken);
+        return await GetAsync<TransactionResponse>(url, cancellationToken);
     }
 
     public async Task<TransactionListResponse?> ListAsync(Dictionary<string, string> queryParams, CancellationToken cancellationToken = default) {
@@ -26,9 +28,9 @@ public class TransactionsApi(
         return await GetAsync<TransactionListResponse>(url, cancellationToken);
     }
 
-    public async Task<PaddleTransaction?> UpdateAsync(string id, TransactionUpdate request, CancellationToken cancellationToken = default) {
+    public async Task<TransactionResponse?> UpdateAsync(string id, TransactionUpdate request, CancellationToken cancellationToken = default) {
         string url = $"{BasePath}/{id}";
-        return await PatchAsync<PaddleTransaction>(url, request, cancellationToken);
+        return await PatchAsync<TransactionResponse>(url, request, cancellationToken);
     }
 
     public async Task<InvoiceUrlResponse?> GetInvoiceUrl(string transactionId, CancellationToken cancellationToken = default) {
@@ -37,12 +39,12 @@ public class TransactionsApi(
     }
 
     [Obsolete("Transactions can't be archived")]
-    public async Task<PaddleTransaction?> ArchiveAsync(string id, CancellationToken cancellationToken = default) {
+    public async Task<TransactionResponse?> ArchiveAsync(string id, CancellationToken cancellationToken = default) {
         return null;
     }
 
     [Obsolete("Transactions can't be activated")]
-    public async Task<PaddleTransaction?> ActivateAsync(string id, CancellationToken cancellationToken = default) {
+    public async Task<TransactionResponse?> ActivateAsync(string id, CancellationToken cancellationToken = default) {
         return null;
     }
 }
