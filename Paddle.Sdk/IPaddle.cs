@@ -20,7 +20,7 @@ public interface IPaddle {
 
     IPricesApi Prices { get; }
 
-    T Deserialize<T>(string json);
+    T? Deserialize<T>(string json);
 
     string Serialize<T>(T obj);
 }
