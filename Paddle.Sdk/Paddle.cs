@@ -7,6 +7,7 @@ using Paddle.Sdk.Api.Prices;
 using Paddle.Sdk.Api.Products;
 using Paddle.Sdk.Api.Subscriptions;
 using Paddle.Sdk.Api.Transactions;
+using Paddle.Sdk.Json;
 using Paddle.Sdk.Json.Converters;
 
 namespace Paddle.Sdk;
@@ -55,10 +56,7 @@ public class Paddle : IPaddle, IDisposable {
         _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
         _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-        _jsonOptions = new JsonSerializerOptions {
-            PropertyNameCaseInsensitive = true,
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        };
+        _jsonOptions = PaddleJson.Options;
 
         #region Init APIs in lazy mode
 
@@ -88,13 +86,9 @@ public class Paddle : IPaddle, IDisposable {
 
     #endregion
 
-    public T Deserialize<T>(string json) {
-        return JsonSerializer.Deserialize<T>(json, _jsonOptions)!;
-    }
+    public T Deserialize<T>(string json) => PaddleJson.Deserialize<T>(json);
 
-    public string Serialize<T>(T obj) {
-        return JsonSerializer.Serialize(obj, _jsonOptions);
-    }
+    public string Serialize<T>(T obj) => PaddleJson.Serialize(obj);
 
     public void Dispose() {
         if (_ownsHttpClient) _httpClient.Dispose();
