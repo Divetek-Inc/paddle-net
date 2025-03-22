@@ -1,93 +1,81 @@
 {
-  "data": {
-    "id": "sub_01jp5s07raffh0780qbbgj6ben",
-    "items": [
-      {
-        "price": {
-          "id": "pri_01j1wtqg4756ja6sxr6sjvkj10",
-          "name": "Commercial License (yearly)",
-          "type": "standard",
-          "status": "active",
-          "quantity": {
-            "maximum": 999999,
-            "minimum": 1
-          },
-          "tax_mode": "account_setting",
-          "seller_id": "20543",
-          "created_at": "2024-07-03T17:36:57.479931Z",
-          "product_id": "pro_01j0vk6e4ka8kdt6ck8crpnpmc",
-          "unit_price": {
-            "amount": "8000",
-            "currency_code": "USD"
-          },
-          "updated_at": "2025-02-14T08:09:37.643569Z",
-          "custom_data": {
-            "is_commercial": "true"
-          },
-          "description": "Commercial License / YEARLY",
-          "import_meta": null,
-          "trial_period": null,
-          "billing_cycle": {
-            "interval": "year",
-            "frequency": 1
-          },
-          "unit_price_overrides": []
-        },
+  "id": "sub_01jpx9b253mntyv9mhe8dynn7j",
+  "items": [
+    {
+      "price": {
+        "id": "pri_01j0vkcjtkgfgr6wfdnbvn927c",
+        "name": "Personal License (yearly)",
         "status": "active",
-        "product": {
-          "id": "pro_01j0vk6e4ka8kdt6ck8crpnpmc",
-          "name": "Intellij SFCC Plugin",
-          "type": "standard",
-          "status": "active",
-          "image_url": null,
-          "seller_id": "20543",
-          "created_at": "2024-06-20T19:50:22.099Z",
-          "updated_at": "2025-02-13T21:49:18.676Z",
-          "custom_data": null,
-          "description": null,
-          "tax_category": "saas"
+        "quantity": {
+          "maximum": 1,
+          "minimum": 1
         },
-        "quantity": 10,
-        "recurring": true,
-        "created_at": "2025-03-12T18:13:53.034Z",
-        "updated_at": "2025-03-12T18:13:53.034Z",
-        "trial_dates": null,
-        "next_billed_at": "2026-03-12T18:13:52.432748Z",
-        "previously_billed_at": "2025-03-12T18:13:52.432748Z"
-      }
-    ],
-    "status": "active",
-    "discount": null,
-    "paused_at": null,
-    "address_id": "add_01jp5qqa4qe0swm0mpfdhpwst3",
-    "created_at": "2025-03-12T18:13:53.034Z",
-    "started_at": "2025-03-12T18:13:52.432748Z",
-    "updated_at": "2025-03-12T18:13:53.034Z",
-    "business_id": "biz_01jp5qqa59d7m9gc564rgsw964",
-    "canceled_at": null,
-    "custom_data": {
-      "userId": "kp_beb2b38de9dd43d996ba9be8a327f68c",
-      "organizationId": "01958726-397d-754c-b9f5-218dc3aaa7e4"
-    },
-    "customer_id": "ctm_01jkxrh18knvw4fmvabz3ckrjg",
-    "import_meta": null,
-    "billing_cycle": {
-      "interval": "year",
-      "frequency": 1
-    },
-    "currency_code": "USD",
-    "next_billed_at": "2026-03-12T18:13:52.432748Z",
-    "billing_details": null,
-    "collection_mode": "automatic",
-    "first_billed_at": "2025-03-12T18:13:52.432748Z",
-    "scheduled_change": null,
-    "current_billing_period": {
-      "ends_at": "2026-03-12T18:13:52.432748Z",
-      "starts_at": "2025-03-12T18:13:52.432748Z"
+        "tax_mode": "account_setting",
+        "created_at": "2024-06-20T19:53:43.507167+00:00",
+        "product_id": "pro_01j0vk6e4ka8kdt6ck8crpnpmc",
+        "unit_price": {
+          "amount": "5000",
+          "currency_code": "USD"
+        },
+        "updated_at": "2025-02-14T08:09:41.559243+00:00",
+        "custom_data": {
+          "is_personal": "true"
+        },
+        "description": "Personal License / YEARLY",
+        "import_meta": null,
+        "trial_period": null,
+        "billing_cycle": {
+          "interval": "year",
+          "frequency": 1
+        },
+        "unit_price_overrides": []
+      },
+      "status": "active",
+      "product": {
+        "id": "pro_01j0vk6e4ka8kdt6ck8crpnpmc",
+        "name": "Intellij SFCC Plugin",
+        "type": "standard",
+        "prices": null,
+        "status": "active",
+        "image_url": null,
+        "created_at": "2024-06-20T19:50:22.099+00:00",
+        "updated_at": "2025-02-13T21:49:18.676+00:00",
+        "custom_data": null,
+        "description": null,
+        "import_meta": null,
+        "tax_category": "saas"
+      },
+      "quantity": 1,
+      "recurring": true,
+      "created_at": "2025-03-21T21:21:56.899+00:00",
+      "updated_at": "2025-03-21T21:21:56.899+00:00",
+      "next_billed_at": "2026-03-21T21:21:56.347088+00:00",
+      "previously_billed_at": "2025-03-21T21:21:56.347088+00:00"
     }
+  ],
+  "status": "active",
+  "paused_at": null,
+  "address_id": "add_01jpx9ac0p14bj7a1q8ykc7jkp",
+  "created_at": "2025-03-21T21:21:56.899+00:00",
+  "started_at": "2025-03-21T21:21:56.347088+00:00",
+  "updated_at": "2025-03-21T21:21:56.899+00:00",
+  "business_id": null,
+  "canceled_at": null,
+  "custom_data": {
+    "userId": "kp_beb2b38de9dd43d996ba9be8a327f68c",
+    "organizationId": "01957618-8012-7285-b6ec-9a42e8336657"
   },
-  "event_id": "evt_01jp5s08rkmbqj99t5tvmjg101",
-  "event_type": "subscription.activated",
-  "occurred_at": "2025-03-12T18:13:54.067196Z",
-  "notification_id": "ntf_01jp5s08y4edec22eqqjm2af5m"
+  "customer_id": "ctm_01jkxrh18knvw4fmvabz3ckrjg",
+  "import_meta": null,
+  "billing_cycle": {
+    "interval": "year",
+    "frequency": 1
+  },
+  "currency_code": "UAH",
+  "next_billed_at": "2026-03-21T21:21:56.347088+00:00",
+  "first_billed_at": "2025-03-21T21:21:56.347088+00:00",
+  "current_billing_period": {
+    "ends_at": "2026-03-21T21:21:56.347088+00:00",
+    "starts_at": "2025-03-21T21:21:56.347088+00:00"
+  }
 }
