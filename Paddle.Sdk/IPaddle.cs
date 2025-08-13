@@ -1,5 +1,6 @@
 using Paddle.Sdk.Api.Addresses;
 using Paddle.Sdk.Api.Customers;
+using Paddle.Sdk.Api.Notifications;
 using Paddle.Sdk.Api.Prices;
 using Paddle.Sdk.Api.Products;
 using Paddle.Sdk.Api.Subscriptions;
@@ -19,6 +20,8 @@ public interface IPaddle {
     ITransactionsApi Transactions { get; }
 
     IPricesApi Prices { get; }
+    
+    INotificationsApi Notifications { get; }
 
     T? Deserialize<T>(string json);
 

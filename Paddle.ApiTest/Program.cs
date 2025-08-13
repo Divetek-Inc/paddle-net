@@ -38,4 +38,8 @@ app.MapGet("/test", async (IPaddle paddle) => {
     })
     .WithName("Test");
 
+app.MapGet("/notify", async (IPaddle paddle) => {
+    
+}).WithName("Notify");
+
 app.Run();

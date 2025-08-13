@@ -3,6 +3,7 @@ using System.Text.Json;
 using Microsoft.Extensions.Logging;
 using Paddle.Sdk.Api.Addresses;
 using Paddle.Sdk.Api.Customers;
+using Paddle.Sdk.Api.Notifications;
 using Paddle.Sdk.Api.Prices;
 using Paddle.Sdk.Api.Products;
 using Paddle.Sdk.Api.Subscriptions;
@@ -30,6 +31,7 @@ public class Paddle : IPaddle, IDisposable {
     private readonly Lazy<ICustomersApi> _customersApi;
     private readonly Lazy<ISubscriptionsApi> _subscriptionsApi;
     private readonly Lazy<ITransactionsApi> _transactionsApi;
+    private readonly Lazy<INotificationsApi> _notificationsApi;
 
     #endregion
 
@@ -66,6 +68,7 @@ public class Paddle : IPaddle, IDisposable {
         _customersApi = new Lazy<ICustomersApi>(() => new CustomersApi(_httpClient, _jsonOptions, logger));
         _subscriptionsApi = new Lazy<ISubscriptionsApi>(() => new SubscriptionsApi(_httpClient, _jsonOptions, logger));
         _transactionsApi = new Lazy<ITransactionsApi>(() => new TransactionsApi(_httpClient, _jsonOptions, logger));
+        _notificationsApi = new Lazy<INotificationsApi>(() => new NotificationsApi(_httpClient, _jsonOptions, logger));
 
         #endregion
     }
@@ -83,6 +86,8 @@ public class Paddle : IPaddle, IDisposable {
     public ISubscriptionsApi Subscriptions => _subscriptionsApi.Value;
 
     public ITransactionsApi Transactions => _transactionsApi.Value;
+
+    public INotificationsApi Notifications => _notificationsApi.Value;
 
     #endregion
 

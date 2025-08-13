@@ -20,7 +20,7 @@ public abstract class ApiBase(HttpClient httpClient, JsonSerializerOptions jsonO
     protected async Task<T?> GetAsync<T>(string url, CancellationToken cancellationToken = default) {
         HttpResponseMessage response = await httpClient.GetAsync(url, cancellationToken);
         await EnsureSuccessAsync(response);
-        var content = await response.Content.ReadAsStringAsync(cancellationToken);
+        string content = await response.Content.ReadAsStringAsync(cancellationToken);
         LogJsonResponse(content);
         return JsonSerializer.Deserialize<T>(content, jsonOptions);
     }
@@ -28,7 +28,7 @@ public abstract class ApiBase(HttpClient httpClient, JsonSerializerOptions jsonO
     protected async Task<T?> PostAsync<T>(string url, object? data, CancellationToken cancellationToken = default) {
         HttpResponseMessage response = await httpClient.PostAsJsonAsync(url, data, jsonOptions, cancellationToken);
         await EnsureSuccessAsync(response);
-        var content = await response.Content.ReadAsStringAsync(cancellationToken);
+        string content = await response.Content.ReadAsStringAsync(cancellationToken);
         LogJsonResponse(content);
         return JsonSerializer.Deserialize<T>(content, jsonOptions);
     }
@@ -36,7 +36,7 @@ public abstract class ApiBase(HttpClient httpClient, JsonSerializerOptions jsonO
     protected async Task<T?> PutAsync<T>(string url, object data, CancellationToken cancellationToken = default) {
         HttpResponseMessage response = await httpClient.PutAsJsonAsync(url, data, jsonOptions, cancellationToken);
         await EnsureSuccessAsync(response);
-        var content = await response.Content.ReadAsStringAsync(cancellationToken);
+        string content = await response.Content.ReadAsStringAsync(cancellationToken);
         LogJsonResponse(content);
         return JsonSerializer.Deserialize<T>(content, jsonOptions);
     }
@@ -44,7 +44,7 @@ public abstract class ApiBase(HttpClient httpClient, JsonSerializerOptions jsonO
     protected async Task<T?> PatchAsync<T>(string url, object data, CancellationToken cancellationToken = default) {
         HttpResponseMessage response = await httpClient.PatchAsJsonAsync(url, data, jsonOptions, cancellationToken);
         await EnsureSuccessAsync(response);
-        var content = await response.Content.ReadAsStringAsync(cancellationToken);
+        string content = await response.Content.ReadAsStringAsync(cancellationToken);
         LogJsonResponse(content);
         return JsonSerializer.Deserialize<T>(content, jsonOptions);
     }
