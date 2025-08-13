@@ -1,8 +1,10 @@
 using Paddle.Sdk;
 using Paddle.Sdk.Dto.Customers;
 using Paddle.Sdk.Entities.Customers;
+using Paddle.Sdk.Entities.Notifications;
 using Paddle.Sdk.Entities.Shared;
 using Paddle.Sdk.Entities.Subscriptions;
+using Paddle.Sdk.Entities.Transactions;
 using Paddle.Sdk.Services;
 
 DotNetEnv.Env.Load();
@@ -38,8 +40,9 @@ app.MapGet("/test", async (IPaddle paddle) => {
     })
     .WithName("Test");
 
-app.MapGet("/notify", async (IPaddle paddle) => {
-    
+app.MapGet("/notify", async (IPaddle paddle, CancellationToken cancellationToken) => {
+    PaddleResponse<List<PaddleNotification>>? notificationList = await paddle.Notifications.ListAsync(null, cancellationToken: cancellationToken);
+    var ok = 123;
 }).WithName("Notify");
 
 app.Run();

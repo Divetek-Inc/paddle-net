@@ -1,6 +1,6 @@
+using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using Paddle.Sdk.Entities.Addresses;
-using Paddle.Sdk.Entities.Events;
 using Paddle.Sdk.Entities.Shared;
 
 namespace Paddle.Sdk.Entities.Notifications;
@@ -39,7 +39,7 @@ public class PaddleNotification {
 }
 
 public class NotificationPayload {
-    public required PaddleAddress Data { get; set; }
+    public required JsonObject Data { get; set; }
 
     [JsonPropertyName("event_id")]
     public required string EventId { get; set; }

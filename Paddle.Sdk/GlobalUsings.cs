@@ -50,7 +50,7 @@ global using InvoiceUrlResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<Padd
 #region Notifications
 
 global using NotificationResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<Paddle.Sdk.Entities.Notifications.PaddleNotification>;
-global using NotificationListResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<System.Collections.Generic.List<Paddle.Sdk.Entities.Transactions.PaddleTransaction>>;
+global using NotificationListResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<System.Collections.Generic.List<Paddle.Sdk.Entities.Notifications.PaddleNotification>>;
 global using NotificationReplayResponse = Paddle.Sdk.Entities.Shared.PaddleResponse<Paddle.Sdk.Entities.Notifications.PaddleNotificationSimple>;
 
 #endregion
