@@ -6,9 +6,11 @@ using Paddle.Sdk.Entities.Shared;
 namespace Paddle.Sdk.Entities.Notifications;
 
 public class PaddleNotification {
-    public required string Type { get; set; }
+    public required string Id { get; set; }
 
-    public required string Status { get; set; }
+    public required NotificationType Type { get; set; }
+
+    public required NotificationStatus Status { get; set; }
 
     public required NotificationPayload Payload { get; set; }
 
