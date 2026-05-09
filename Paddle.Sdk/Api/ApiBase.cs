@@ -21,6 +21,7 @@ public abstract class ApiBase(HttpClient httpClient, JsonSerializerOptions jsonO
         HttpResponseMessage response = await httpClient.GetAsync(url, cancellationToken);
         await EnsureSuccessAsync(response);
         string content = await response.Content.ReadAsStringAsync(cancellationToken);
+        logger?.LogDebug("Paddle API Response: \n {JsonContent}", content);
         LogJsonResponse(content);
         return JsonSerializer.Deserialize<T>(content, jsonOptions);
     }
@@ -29,6 +30,7 @@ public abstract class ApiBase(HttpClient httpClient, JsonSerializerOptions jsonO
         HttpResponseMessage response = await httpClient.PostAsJsonAsync(url, data, jsonOptions, cancellationToken);
         await EnsureSuccessAsync(response);
         string content = await response.Content.ReadAsStringAsync(cancellationToken);
+        logger?.LogDebug("Paddle API Response: \n {JsonContent}", content);
         LogJsonResponse(content);
         return JsonSerializer.Deserialize<T>(content, jsonOptions);
     }

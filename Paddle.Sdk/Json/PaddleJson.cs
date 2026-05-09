@@ -6,6 +6,7 @@ public static class PaddleJson {
     public static JsonSerializerOptions Options = new() {
         PropertyNameCaseInsensitive = true,
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
     };
 
     public static T Deserialize<T>(string json) {

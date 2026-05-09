@@ -27,7 +27,7 @@ public class TransactionCreate {
     [JsonPropertyName("discount_id")]
     public string? DiscountId { get; set; }
 
-    public List<TransactionItem> Items { get; set; } = new();
+    public List<object> Items { get; set; } = new();
 
     [JsonPropertyName("billing_details")]
     public BillingDetails? BillingDetails { get; set; }

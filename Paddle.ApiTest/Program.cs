@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.HttpResults;
 using Paddle.Sdk;
 using Paddle.Sdk.Dto.Customers;
 using Paddle.Sdk.Entities.Customers;
@@ -40,9 +41,25 @@ app.MapGet("/test", async (IPaddle paddle) => {
     })
     .WithName("Test");
 
-app.MapGet("/notify", async (IPaddle paddle, CancellationToken cancellationToken) => {
-    PaddleResponse<List<PaddleNotification>>? notificationList = await paddle.Notifications.ListAsync(null, cancellationToken: cancellationToken);
-    var ok = 123;
+app.MapGet("/notify", async (HttpRequest request, IPaddle paddle, CancellationToken cancellationToken) => {
+    // Convert query parameters to Dictionary<string, string>
+    Dictionary<string, string>? queryParams = null;
+
+    if (request.Query.Count != 0) {
+        queryParams = request.Query.ToDictionary(
+            kvp => kvp.Key,
+            kvp => kvp.Value.ToString()
+        );
+    }
+
+    PaddleResponse<List<PaddleNotification>>? notificationList = await paddle.Notifications.ListAsync(queryParams, cancellationToken: cancellationToken);
+
+    return TypedResults.Ok(notificationList);
 }).WithName("Notify");
+
+app.MapGet("/transaction/{id}", async (string id, IPaddle paddle) => {
+    PaddleResponse<PaddleTransaction>? transaction = await paddle.Transactions.GetAsync(id, new Dictionary<string, string>());
+    return TypedResults.Ok(transaction);
+});
 
 app.Run();

@@ -25,7 +25,7 @@ public class PaddleTransaction : PaddleBaseEntity {
     public List<Payment> Payments { get; set; }
 
     [JsonPropertyName("billed_at")]
-    public DateTimeOffset BilledAt { get; set; }
+    public DateTimeOffset? BilledAt { get; set; }
 
     [JsonPropertyName("address_id")]
     public string AddressId { get; set; }
