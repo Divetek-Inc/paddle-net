@@ -61,6 +61,12 @@ public class TransactionUpdate {
     public BillingDetails? BillingDetails { get; set; }
 
     /// <summary>
+    /// Checkout settings for payment-link transactions
+    /// </summary>
+    [JsonPropertyName("checkout")]
+    public TransactionCheckoutRequest? Checkout { get; set; }
+
+    /// <summary>
     /// Items included in the transaction
     /// </summary>
     [JsonPropertyName("items")]

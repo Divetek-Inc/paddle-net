@@ -34,4 +34,7 @@ public class TransactionCreate {
 
     [JsonPropertyName("billing_period")]
     public BillingPeriod? BillingPeriod { get; set; }
+
+    [JsonPropertyName("checkout")]
+    public TransactionCheckoutRequest? Checkout { get; set; }
 }
