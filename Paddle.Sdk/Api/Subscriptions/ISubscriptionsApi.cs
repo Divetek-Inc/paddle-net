@@ -1,4 +1,5 @@
 using Paddle.Sdk.Dto.Subscriptions;
+using Paddle.Sdk.Entities.Shared;
 using Paddle.Sdk.Entities.Subscriptions;
 
 namespace Paddle.Sdk.Api.Subscriptions;
@@ -15,4 +16,16 @@ public interface ISubscriptionsApi {
     Task<SubscriptionResponse?> PauseAsync(string id, SubscriptionPause request, CancellationToken cancellationToken = default);
 
     Task<SubscriptionResponse?> ResumeAsync(string id, SubscriptionResume request, CancellationToken cancellationToken = default);
+
+    Task<PaddleResponse<SubscriptionChargePreview>?> PreviewChargeAsync(
+        string id,
+        SubscriptionCharge request,
+        CancellationToken cancellationToken = default
+    );
+
+    Task<SubscriptionResponse?> CreateChargeAsync(
+        string id,
+        SubscriptionCharge request,
+        CancellationToken cancellationToken = default
+    );
 }

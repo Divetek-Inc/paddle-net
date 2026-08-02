@@ -1,3 +1,4 @@
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using Paddle.Sdk.Entities.Prices;
 using Paddle.Sdk.Entities.Shared;
@@ -23,6 +24,9 @@ public class PaddleSubscription : PaddleBaseEntity {
     [JsonPropertyName("currency_code")]
     public CurrencyCode CurrencyCode { get; set; }
 
+    [JsonPropertyName("collection_mode")]
+    public CollectingMode CollectionMode { get; set; }
+
     [JsonPropertyName("billing_cycle")]
     public BillingCycle BillingCycle { get; set; }
 
@@ -43,4 +47,10 @@ public class PaddleSubscription : PaddleBaseEntity {
 
     [JsonPropertyName("current_billing_period")]
     public BillingPeriod BillingPeriod { get; set; }
+
+    [JsonPropertyName("next_transaction")]
+    public SubscriptionChargeTransactionPreview? NextTransaction { get; set; }
+
+    [JsonPropertyName("scheduled_change")]
+    public JsonElement? ScheduledChange { get; set; }
 }

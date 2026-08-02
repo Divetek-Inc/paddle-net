@@ -7,6 +7,10 @@ namespace Paddle.Sdk.Entities.Transactions;
 
 [JsonConverter(typeof(PaddleJsonConverter<TransactionOrigin>))]
 public enum TransactionOrigin {
+    [EnumMember(Value = "api")]
+    [Description("Transaction created through the Paddle API")]
+    Api,
+
     [EnumMember(Value = "subscription_charge")]
     [Description("Transaction created automatically by Paddle as a result of a one-time charge for a subscription")]
     SubscriptionCharge,
@@ -14,6 +18,10 @@ public enum TransactionOrigin {
     [EnumMember(Value = "subscription_payment_method_change")]
     [Description("Transaction created automatically as part of updating a payment method. May be a zero value transaction")]
     SubscriptionPaymentMethodChange,
+
+    [EnumMember(Value = "subscription_import")]
+    [Description("Transaction created as part of an imported subscription")]
+    SubscriptionImport,
 
     [EnumMember(Value = "subscription_recurring")]
     [Description("Transaction created automatically by Paddle as a result of a subscription renewal")]
